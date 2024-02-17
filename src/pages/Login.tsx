@@ -5,16 +5,11 @@
  * 버킷리스트 게시글 조회 페이지 (벨로그 참고)
  */
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Storage from "../apis/storage";
 
 export default function Login() {
   const [id, setId] = useState<string>("");
-
-  useEffect(() => {
-    // httpClient.oauth.get().then((r) => {
-    //   console.log(r);
-    // });
-  }, [id]);
 
   function checkId(id: string): boolean {
     const idList: string[] = [
@@ -33,6 +28,7 @@ export default function Login() {
   const handleLogin = () => {
     if (checkId(id)) {
       alert("로그인 완료~!");
+      Storage.setItem("identify", id);
       return;
     }
     alert("아이디나 비밀번호를 확인해주세요.");

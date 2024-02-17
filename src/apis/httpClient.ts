@@ -59,7 +59,7 @@ export class HttpClient {
   }
 
   static setAccessToken() {
-    const accessToken = Storage.getItem("userId");
+    const accessToken = Storage.getItem("identify");
     HttpClient.clientConfig.headers = {
       ...HttpClient.clientConfig.headers,
       Token: accessToken || undefined,
