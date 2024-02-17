@@ -46,12 +46,19 @@ export default function Chat() {
   const [inputValue, setInputValue] = useState("");
 
   const handleChat = () => {
+    clearInput("iny");
     if (inputValue === "죄송합니다") {
       bbb();
     }
     setChatList((prev) => [...prev, { own: "my", text: inputValue }]);
     scrollToBottom("chatMessages");
   };
+
+  function clearInput(inputId: string) {
+    const inputElement: any = document.getElementById(inputId);
+    inputElement.value = "";
+    inputElement.focus();
+  }
 
   return (
     <div>
@@ -78,6 +85,7 @@ export default function Chat() {
       </div>
       <div className="fixed bottom-0 w-full flex items-center bg-white p-4 border-t border-gray-200">
         <input
+          id="iny"
           type="text"
           placeholder="메시지 입력..."
           className="flex-1 appearance-none border border-gray-300 rounded-xl py-2 px-4 focus:outline-none focus:border-blue-500"
