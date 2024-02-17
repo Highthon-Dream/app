@@ -83,4 +83,5 @@ const axiosConfig: HttpClientConfig = {
 
 export default {
   bucketList: new HttpClient("/bucket-list", axiosConfig),
+  questionList: new HttpClient("/question", axiosConfig)
 };

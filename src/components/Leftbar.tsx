@@ -19,7 +19,7 @@ const Leftbar = () => {
       {pathname === "/login" || pathname === "/signup" ? (
         <></>
       ) : (
-        <div className="flex-col items-start bg-white text-black w-[200px] h-screen border-r border-primary pt-[100px] pl-[20px]">
+        <div className="flex-col items-start bg-white text-black w-[200px] h-screen border-r border-primary pt-[100px] pl-[20px] sticky top-10 z-1">
           <div className="flex flex-col gap-[30px]">
             {headerObj.map((header, idx) =>
               pathname !== header.link ? (
