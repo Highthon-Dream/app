@@ -5,7 +5,7 @@ const Buket = () => {
   return (
     <div className="flex items-start">
       <Leftbar />
-      dsalkjd
+      버킷리스트 제목만 조회
     </div>
   );
 };
