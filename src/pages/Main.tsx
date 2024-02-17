@@ -3,9 +3,7 @@ import { useEffect, useState } from "react";
 import httpClient from "../apis/httpClient";
 import BucketComponent from "../components/BucketComponent";
 import Leftbar from "../components/Leftbar";
-import QuestionComponent from "../components/QuestionComponent";
 import { useNavigate } from "react-router-dom";
-import { createNoSubstitutionTemplateLiteral } from "typescript";
 
 export interface ListTypes {
   content: string;

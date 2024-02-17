@@ -2,11 +2,10 @@ import { useEffect, useState } from "react";
 import httpClient from "../apis/httpClient";
 import Leftbar from "../components/Leftbar";
 import { useNavigate } from "react-router-dom";
-import { ListTypes } from "./Main";
 import QuestionComponent from "../components/QuestionComponent";
 
 const Question = () => {
-  const [questionList, setQuestionList] = useState<ListTypes[]>([]);
+  const [questionList, setQuestionList] = useState<any[]>([]);
   useEffect(() => {
     httpClient.questionList.get().then((r) => {
       setQuestionList(Object.values(r.data));

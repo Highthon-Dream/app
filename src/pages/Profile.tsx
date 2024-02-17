@@ -1,11 +1,10 @@
-import React from "react";
-import Leftbar from "../components/Leftbar";
-import PencilIcon from "../assets/PencilIcon";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import MyBucketToggle from "../components/MyBucketToggle";
-import AddBucketIcon from "../assets/AddBucketIcon";
 import httpClient from "../apis/httpClient";
+import AddBucketIcon from "../assets/AddBucketIcon";
+import PencilIcon from "../assets/PencilIcon";
+import Leftbar from "../components/Leftbar";
+import MyBucketToggle from "../components/MyBucketToggle";
 
 const Profile = () => {
   const { id } = useParams();
