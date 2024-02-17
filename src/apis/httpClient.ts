@@ -33,6 +33,13 @@ export class HttpClient {
     });
   }
 
+  putById(data: unknown, requestConfig?: AxiosRequestConfig) {
+    return this.api.put("/:id", data, {
+      ...HttpClient.clientConfig,
+      ...requestConfig,
+    });
+  }
+
   post(data: unknown, requestConfig?: AxiosRequestConfig) {
     return this.api.post("", data, {
       ...HttpClient.clientConfig,
