@@ -10,6 +10,7 @@ import TodoWrite from "./pages/TodoWrite";
 import Detail from "./pages/Detail";
 import BucketListDetailView from "./pages/BucketListDetailView";
 import QuestionDetailView from "./pages/QuestionDetailView";
+import Chat from "./pages/Chat";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/chat/1" element={<Chat />} />
         <Route path="/bucket" element={<Buket />} />
         <Route path="/question/:id" element={<QuestionDetailView />} />
         <Route path="/bucket/write/:id" element={<Detail />} />
