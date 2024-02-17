@@ -1,15 +1,24 @@
 import { ListTypes } from "../pages/Main";
 import { changedDate } from "../util/chnagedDate";
+import { getBackground } from "../util/getBackground";
 
 interface BucketComponentProps {
   bucket: ListTypes;
-  onClick: () => void
+  onClick: () => void;
 }
 
 const BucketComponent = ({ bucket, onClick }: BucketComponentProps) => {
   return (
-    <div className="border-2 border-primary rounded-[40px] w-[516px] h-[478px] bg-white" onClick={onClick}>
-      <div className="h-[254px] bg-red-400 rounded-tr-[40px] rounded-tl-[40px] relative bg-back-pattern bg-cover bg-no-repeat bg-[rgba(0,0,0,0.4)]">
+    <div
+      className="border-2 border-primary rounded-[40px] w-[516px] h-[478px] bg-white"
+      onClick={onClick}
+    >
+      <div
+        className="h-[254px] bg-red-400 rounded-tr-[40px] rounded-tl-[40px] relative bg-cover bg-no-repeat bg-[rgba(0,0,0,0.4)]"
+        style={{
+          backgroundImage: `url('/background${getBackground()}.png')`,
+        }}
+      >
         <h1 className="font-lotteria text-[30px] text-white absolute bottom-2 left-4">
           {bucket.title}
         </h1>
