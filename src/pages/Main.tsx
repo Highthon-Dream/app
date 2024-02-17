@@ -36,7 +36,7 @@ export default function Main() {
   useEffect(() => {
     axios
       .post("http://192.168.10.142/recommendation/user", {
-        user_id: 0,
+        user_id: 1,
         using: "question",
       })
       .then((r) => {
@@ -67,7 +67,7 @@ export default function Main() {
           </h2>
           <div className="flex flex-col items-center gap-y-[32px] overflow-y-auto">
             {recommentList.map((bucket, idx) => (
-              <div className="w-[400px] px-7 py-5 border-2 border-primary rounded-[48px]">
+              <div className="w-[400px] px-7 py-5 border-2 border-primary rounded-[48px]" onClick={() => navigate(`/profile/${bucket.id}`)}>
                 <div className="flex gap-6 items-center">
                   <div className="w-14 h-14 bg-black rounded-full" />
                   <div className="font-lotteria text-primary text-[20px] w-60">

@@ -22,6 +22,7 @@ const App = () => {
         <Route path="/chat/1" element={<Chat />} />
         <Route path="/bucket" element={<Buket />} />
         <Route path="/question" element={<Question />} />
+        <Route path="/question/write" element={<></>} />
         <Route path="/question/:id" element={<QuestionDetailView />} />
         <Route path="/bucket/write/:id" element={<Detail />} />
         <Route path="/bucket/:id" element={<BucketListDetailView />} />
