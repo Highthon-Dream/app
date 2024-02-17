@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
-import Buket from "./pages/Buket";
+import Buket from "./pages/Question";
 import Login from "./pages/Login";
 import Main from "./pages/Main";
 import Profile from "./pages/Profile";
@@ -9,6 +9,7 @@ import ToastEditor from "./pages/BucketListWrite";
 import TodoWrite from "./pages/TodoWrite";
 import Detail from "./pages/Detail";
 import BucketListDetailView from "./pages/BucketListDetailView";
+import Question from "./pages/Question";
 
 const App = () => {
   return (
@@ -16,7 +17,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/bucket" element={<Buket />} />
+        <Route path="/question" element={<Question />} />
         <Route path="/bucket/write/:id" element={<Detail />} />
         <Route path="/bucket/:id" element={<BucketListDetailView />} />
         <Route path="/write" element={<ToastEditor />} />
