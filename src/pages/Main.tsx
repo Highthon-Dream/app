@@ -61,11 +61,13 @@ export default function Main() {
             ))}
           </div>
         </div>
-        <div>
-          <h2 className="font-lotteria text-primary text-[24px]">추천 유저</h2>
+        <div className="sticky top-[175px] right-16 overflow-scroll">
+          <h2 className="font-lotteria text-primary text-[24px] mb-4">
+            추천 유저
+          </h2>
           <div className="flex flex-col items-center gap-y-[32px] overflow-y-auto">
             {recommentList.map((bucket, idx) => (
-              <div className="w-[400px] px-7 py-5">
+              <div className="w-[400px] px-7 py-5 border-2 border-primary rounded-[48px]">
                 <div className="flex gap-6 items-center">
                   <div className="w-14 h-14 bg-black rounded-full" />
                   <div className="font-lotteria text-primary text-[20px] w-60">
