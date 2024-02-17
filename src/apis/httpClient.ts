@@ -5,7 +5,7 @@ import Storage from "./storage";
 export interface HttpClientConfig {
   baseURL?: string;
   timeout?: number;
-  headers?: { Token?: string };
+  headers?: { identify?: string };
 }
 
 export class HttpClient {
@@ -18,7 +18,7 @@ export class HttpClient {
       ...axiosConfig,
       baseURL: `${axiosConfig.baseURL}${url}`,
     });
-    HttpClient.clientConfig = { headers: { Token: "" } };
+    HttpClient.clientConfig = { headers: { identify: "" } };
     this.setting();
   }
 
@@ -62,7 +62,7 @@ export class HttpClient {
     const accessToken = Storage.getItem("identify");
     HttpClient.clientConfig.headers = {
       ...HttpClient.clientConfig.headers,
-      Token: accessToken || undefined,
+      identify: accessToken || undefined,
     };
   }
 
