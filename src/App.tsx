@@ -9,6 +9,7 @@ import ToastEditor from "./pages/BucketListWrite";
 import TodoWrite from "./pages/TodoWrite";
 import Detail from "./pages/Detail";
 import BucketListDetailView from "./pages/BucketListDetailView";
+import QuestionDetailView from "./pages/QuestionDetailView";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/bucket" element={<Buket />} />
+        <Route path="/question/:id" element={<QuestionDetailView />} />
         <Route path="/bucket/write/:id" element={<Detail />} />
         <Route path="/bucket/:id" element={<BucketListDetailView />} />
         <Route path="/write" element={<ToastEditor />} />

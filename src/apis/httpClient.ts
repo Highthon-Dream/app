@@ -47,6 +47,13 @@ export class HttpClient {
     });
   }
 
+  postIdAnswer(id: any, data: unknown, requestConfig?: AxiosRequestConfig) {
+    return this.api.post(`/${id}/answer`, data, {
+      ...HttpClient.clientConfig,
+      ...requestConfig,
+    });
+  }
+
   put(data: unknown, requestConfig?: AxiosRequestConfig) {
     return this.api.put("", data, {
       ...HttpClient.clientConfig,
@@ -90,5 +97,5 @@ const axiosConfig: HttpClientConfig = {
 
 export default {
   bucketList: new HttpClient("/bucket-list", axiosConfig),
-  questionList: new HttpClient("/question", axiosConfig)
+  questionList: new HttpClient("/question", axiosConfig),
 };
