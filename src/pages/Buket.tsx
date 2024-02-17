@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import httpClient from "../apis/httpClient";
 import Leftbar from "../components/Leftbar";
+import { useNavigate } from "react-router-dom";
 
 const Bucket = () => {
   const [bucketList, setBucketList] = useState<any[]>([]);
@@ -10,13 +11,18 @@ const Bucket = () => {
       console.log(Object.values(r.data));
     });
   }, []);
+  const navigate = useNavigate();
+
   return (
     <div className="flex items-start">
       <Leftbar />
-      버킷리스트 제목만 조회
       <div>
         {bucketList.map((bucket) => (
-          <div>{bucket.title}</div>
+          <div
+            onClick={() => navigate(`/bucket/write/${bucket.id.toString()}`)}
+          >
+            {bucket.title}
+          </div>
         ))}
       </div>
     </div>

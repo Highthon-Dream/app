@@ -16,7 +16,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/bucket" element={<Buket />} />
-        <Route path="/bucket/:id" element={<Detail />} />
+        <Route path="/bucket/write/:id" element={<Detail />} />
         <Route path="/write" element={<ToastEditor />} />
         <Route path="/bucket/write" element={<TodoWrite />} />
         <Route path="/profile" element={<Profile />} />
