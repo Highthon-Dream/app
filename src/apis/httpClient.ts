@@ -32,6 +32,12 @@ export class HttpClient {
       ...requestConfig,
     });
   }
+  getQuestionById(requestConfig?: AxiosRequestConfig) {
+    return this.api.get("/question/:id", {
+      ...HttpClient.clientConfig,
+      ...requestConfig,
+    });
+  }
 
   putById(data: unknown, requestConfig?: AxiosRequestConfig) {
     return this.api.put("/:id", data, {
@@ -42,6 +48,13 @@ export class HttpClient {
 
   post(data: unknown, requestConfig?: AxiosRequestConfig) {
     return this.api.post("", data, {
+      ...HttpClient.clientConfig,
+      ...requestConfig,
+    });
+  }
+
+  postIdAnswer(id: any, data: unknown, requestConfig?: AxiosRequestConfig) {
+    return this.api.post(`/${id}/answer`, data, {
       ...HttpClient.clientConfig,
       ...requestConfig,
     });
@@ -90,5 +103,5 @@ const axiosConfig: HttpClientConfig = {
 
 export default {
   bucketList: new HttpClient("/bucket-list", axiosConfig),
-  questionList: new HttpClient("/question", axiosConfig)
+  questionList: new HttpClient("/question", axiosConfig),
 };
