@@ -16,20 +16,41 @@ const Profile = () => {
   const [myBucketList, setMybucketList] = useState<
     { id: number; title: string; content: string }[]
   >([]);
+  const [myQuestionList, setMyQuestionList] = useState<
+    { id: number; title: string; content: string }[]
+  >([]);
   const [profileInfo, setProfileInfo] = useState({});
   const [isAdd, setIsAdd] = useState(false);
   const [addTitle, setAddTitle] = useState("");
   const [addContent, setAddContent] = useState("");
   let num = 0;
-  // useEffect(() => {}, []);
-  const onPostBucket = async () => {
+  const [currentPage, setCurrentPage] = useState<"bucket" | "question">(
+    "bucket"
+  );
+  const onPost = async () => {
     setIsAdd(false);
-    await httpClient.bucketList.post({ title: addTitle, content: addContent });
-    num += 1;
-    setMybucketList((prev) => [
-      ...prev,
-      { id: num, title: addTitle, content: addContent },
-    ]);
+    if (currentPage === "bucket") {
+      await httpClient.bucketList.post({
+        title: addTitle,
+        content: addContent,
+      });
+      num += 1;
+      setMybucketList((prev) => [
+        ...prev,
+        { id: num, title: addTitle, content: addContent },
+      ]);
+    } else {
+      await httpClient.questionList.post({
+        id: num,
+        title: addTitle,
+        content: addContent,
+      });
+      num += 1;
+      setMyQuestionList((prev) => [
+        ...prev,
+        { id: num, title: addTitle, content: addContent },
+      ]);
+    }
     setAddTitle("");
     setAddContent("");
   };
@@ -91,41 +112,95 @@ const Profile = () => {
           <h2 className="font-lotteria text-[24px] text-primary">나의 기록</h2>
           <div className="flex flex-col items-center">
             <div className="flex items-end">
-              <div className="w-[452px] h-[67px] rounded-tr-[50px] rounded-tl-[50px] bg-white border-t-2 border-l-2 border-r-2 border-primary font-lotteria text-[24px] text-primary flex items-center justify-center cursor-pointer">
-                버킷리스트
-              </div>
-              <div className="w-[452px] h-[67px] rounded-tr-[50px] rounded-tl-[50px] bg-[#C5D9FF] border-2 border-primary font-lotteria text-[24px] text-white flex items-center justify-center cursor-pointer">
-                나의 답변
-              </div>
+              {currentPage === "bucket" ? (
+                <>
+                  <div className="w-[452px] h-[67px] rounded-tr-[50px] rounded-tl-[50px] bg-white border-t-2 border-l-2 border-r-2 border-primary font-lotteria text-[24px] text-primary flex items-center justify-center cursor-pointer">
+                    버킷리스트
+                  </div>
+                  <div
+                    className="w-[452px] h-[67px] rounded-tr-[50px] rounded-tl-[50px] bg-[#C5D9FF] border-2 border-primary font-lotteria text-[24px] text-white flex items-center justify-center cursor-pointer"
+                    onClick={() => setCurrentPage("question")}
+                  >
+                    작성한 질문
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div
+                    className="w-[452px] h-[67px] rounded-tr-[50px] rounded-tl-[50px] bg-[#C5D9FF] border-2 border-primary font-lotteria text-[24px] text-white flex items-center justify-center cursor-pointer"
+                    onClick={() => setCurrentPage("bucket")}
+                  >
+                    버킷리스트
+                  </div>
+                  <div className="w-[452px] h-[67px] rounded-tr-[50px] rounded-tl-[50px] bg-white border-t-2 border-l-2 border-r-2 border-primary font-lotteria text-[24px] text-primary flex items-center justify-center cursor-pointer">
+                    작성한 질문
+                  </div>
+                </>
+              )}
             </div>
             <div className="w-[905px] h-[600px] bg-white border-l-2 border-r-2 border-b-2 border-primary flex flex-col items-start gap-y-[60px] p-20 relative">
-              <AddBucketIcon
-                onClick={() => setIsAdd((prev) => !prev)}
-                className="absolute top-4 right-4 cursor-pointer"
-              />
-              {myBucketList.map((myBucket) => (
-                <MyBucketToggle myBucket={myBucket} />
-              ))}
-              {isAdd && (
-                <details className="text-[#C5D9FF] cursor-pointer">
-                  <summary>
-                    <input
-                      type="text"
-                      value={addTitle}
-                      onChange={(e) => setAddTitle(e.target.value)}
-                      className="border-b border-[#C5D9FF] outline-none"
-                      placeholder="버킷 리스트 제목을 입력해주세요."
-                    />
-                  </summary>
-                  <input
-                    type="text"
-                    value={addContent}
-                    onChange={(e) => setAddContent(e.target.value)}
-                    onKeyDown={(e) => e.key === "Enter" && onPostBucket()}
-                    className="text-black w-[600px] outline-none"
-                    placeholder="버킷 리스트 내용을 입력해주세요."
+              {currentPage === "bucket" ? (
+                <>
+                  <AddBucketIcon
+                    onClick={() => setIsAdd((prev) => !prev)}
+                    className="absolute top-4 right-4 cursor-pointer"
                   />
-                </details>
+                  {myBucketList.map((myBucket) => (
+                    <MyBucketToggle myBucket={myBucket} />
+                  ))}
+                  {isAdd && (
+                    <details className="text-[#C5D9FF] cursor-pointer">
+                      <summary>
+                        <input
+                          type="text"
+                          value={addTitle}
+                          onChange={(e) => setAddTitle(e.target.value)}
+                          className="border-b border-[#C5D9FF] outline-none"
+                          placeholder="버킷 리스트 제목을 입력해주세요."
+                        />
+                      </summary>
+                      <input
+                        type="text"
+                        value={addContent}
+                        onChange={(e) => setAddContent(e.target.value)}
+                        onKeyDown={(e) => e.key === "Enter" && onPost()}
+                        className="text-black w-[600px] outline-none"
+                        placeholder="버킷 리스트 내용을 입력해주세요."
+                      />
+                    </details>
+                  )}
+                </>
+              ) : (
+                <>
+                  <AddBucketIcon
+                    onClick={() => setIsAdd((prev) => !prev)}
+                    className="absolute top-4 right-4 cursor-pointer"
+                  />
+                  {myQuestionList.map((myQuestion) => (
+                    <MyBucketToggle myBucket={myQuestion} />
+                  ))}
+                  {isAdd && (
+                    <details className="text-[#C5D9FF] cursor-pointer">
+                      <summary>
+                        <input
+                          type="text"
+                          value={addTitle}
+                          onChange={(e) => setAddTitle(e.target.value)}
+                          className="border-b border-[#C5D9FF] outline-none w-[300px]"
+                          placeholder="질문 제목을 입력해주세요."
+                        />
+                      </summary>
+                      <input
+                        type="text"
+                        value={addContent}
+                        onChange={(e) => setAddContent(e.target.value)}
+                        onKeyDown={(e) => e.key === "Enter" && onPost()}
+                        className="text-black w-[600px] outline-none"
+                        placeholder="질문 내용을 입력해주세요."
+                      />
+                    </details>
+                  )}
+                </>
               )}
             </div>
           </div>
