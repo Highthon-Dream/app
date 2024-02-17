@@ -32,6 +32,12 @@ export class HttpClient {
       ...requestConfig,
     });
   }
+  getQuestionById(requestConfig?: AxiosRequestConfig) {
+    return this.api.get("/question/:id", {
+      ...HttpClient.clientConfig,
+      ...requestConfig,
+    });
+  }
 
   putById(data: unknown, requestConfig?: AxiosRequestConfig) {
     return this.api.put("/:id", data, {
