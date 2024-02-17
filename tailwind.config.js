@@ -6,6 +6,9 @@ module.exports = {
       colors: {
         primary: "#6A9DFF",
       },
+      fontFamily: {
+        lotteria: "LOTTERIACHAB",
+      },
     },
   },
   plugins: [],

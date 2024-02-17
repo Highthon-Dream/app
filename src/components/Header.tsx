@@ -8,7 +8,7 @@ const Header = () => {
       {pathname === "/login" || pathname === "/signup" ? (
         <></>
       ) : (
-        <nav className="size-full bg-primary h-[100px] text-white text-[40px] font-['LOTTERIACHAB'] p-8 flex items-center">
+        <nav className="size-full bg-primary h-[100px] text-white text-[40px] font-['LOTTERIACHAB'] p-8 flex items-center sticky top-0 z-[999]">
           <div className="bg-white text-primary text-[30px] w-[168px] h-[64px] rounded-md flex items-center justify-center">
             <h1>WEEGO</h1>
           </div>
