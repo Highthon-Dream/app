@@ -59,7 +59,7 @@ export class HttpClient {
   }
 
   static setAccessToken() {
-    const accessToken = Storage.getItem("ACCESS_TOKEN");
+    const accessToken = Storage.getItem("userId");
     HttpClient.clientConfig.headers = {
       ...HttpClient.clientConfig.headers,
       Token: accessToken || undefined,
@@ -77,10 +77,10 @@ export class HttpClient {
 }
 
 const axiosConfig: HttpClientConfig = {
-  baseURL: "config.baseURL",
+  baseURL: "http://192.168.10.231:8080",
   timeout: 100000,
 };
 
 export default {
-  oauth: new HttpClient("/api/v1/oauth", axiosConfig),
+  bucketList: new HttpClient("/bucket-list", axiosConfig),
 };

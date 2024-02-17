@@ -6,14 +6,15 @@
  */
 
 import { useEffect, useState } from "react";
+import httpClient from "../apis/httpClient";
 
 export default function SignUp() {
   const [id, setId] = useState<string>("");
 
   useEffect(() => {
-    // httpClient.oauth.get().then((r) => {
-    //   console.log(r);
-    // });
+    // httpClient.bucketList.get().then((r) => {
+    //     console.log(r);
+    //   });
   }, [id]);
 
   const handleSignUp = () => {
