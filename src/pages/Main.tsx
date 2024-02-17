@@ -1,8 +1,7 @@
-
 export default function Main() {
   return (
-    <div>
-      dsalkjd
+    <div className="flex items-start">
+      <div>dqwd</div>
     </div>
   );
 }

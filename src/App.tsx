@@ -6,13 +6,12 @@ import Login from "./pages/Login";
 import Main from "./pages/Main";
 import { Route, Routes } from "react-router-dom";
 import SignUp from "./pages/SignUp";
-import MyEditor from "./pages/Editor";
+import ToastEditor from "./pages/Editor";
 
 const App = () => {
   return (
     <div>
       <Header />
-      <div className="flex items-start">
         <Leftbar />
         <Routes>
           <Route path="/" element={<Main />} />
@@ -20,9 +19,8 @@ const App = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/editor" element={<MyEditor />} />
+          <Route path="/editor" element={<ToastEditor />} />
         </Routes>
-      </div>
     </div>
   );
 };
