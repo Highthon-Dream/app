@@ -1,7 +1,10 @@
+import Leftbar from "../components/Leftbar";
+
 export default function Main() {
   return (
     <div className="flex items-start">
-      <div>dqwd</div>
+      <Leftbar />
+      dsalkjd
     </div>
   );
 }

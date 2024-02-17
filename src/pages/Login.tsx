@@ -21,7 +21,7 @@ export default function Login() {
   };
 
   return (
-    <div className="px-12 py-32 flex flex-col gap-16">
+    <div className="full-size h-screen px-12 py-32 flex flex-col gap-16 items-center justify-center">
       <div>
         <h1 className="text-center text-primary text-3xl font-bold">WEEGO</h1>
         <h1 className="text-center text-primary text-xl font-bold">
