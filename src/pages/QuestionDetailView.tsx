@@ -9,13 +9,13 @@ export default function QuestionDetailView() {
   const [commentList, setCommentList] = useState<any>([]);
 
   useEffect(() => {
+    httpClient.questionList
+      .getQuestionByAnswerId(id)
+      .then((r) => {
+        setCommentList(Object.values(r.data));
+      });
     httpClient.questionList.getById({ params: { id } }).then((r) => {
-      setDetailInfo(r.data[0]);
-      console.log(r.data[0]);
-    });
-    httpClient.questionList.getQuestionById({ params: { id } }).then((r) => {
-      setCommentList(Object.values(r.data));
-      console.log("dddd", r.data);
+      setDetailInfo(r.data);
     });
   }, [id]);
 
@@ -45,7 +45,7 @@ export default function QuestionDetailView() {
             httpClient.questionList
               .postIdAnswer(id, { content: info })
               .then((r) => {
-                window.location.reload()
+                window.location.reload();
               });
           }}
         >

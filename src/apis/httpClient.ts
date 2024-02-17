@@ -32,8 +32,8 @@ export class HttpClient {
       ...requestConfig,
     });
   }
-  getQuestionById(requestConfig?: AxiosRequestConfig) {
-    return this.api.get("/question/:id", {
+  getQuestionByAnswerId(id: any,requestConfig?: AxiosRequestConfig) {
+    return this.api.get(`/${id}/answer`, {
       ...HttpClient.clientConfig,
       ...requestConfig,
     });
