@@ -6,7 +6,7 @@ import ProfileOIcon from "../assets/ProfileIcon";
 
 const headerObj = [
   { name: "홈", icon: <HomeIcon />, link: "/" },
-  { name: "버킷리스트", icon: <BuketIcon />, link: "/bucket" },
+  { name: "버킷리스트", icon: <BuketIcon />, link: "/question" },
   { name: "프로필", icon: <ProfileOIcon />, link: "/profile" },
 ];
 
