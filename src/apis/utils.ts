@@ -3,9 +3,9 @@ import { getDateParsedData } from "./date";
 import Storage from "./storage";
 
 export const requestInterceptors = (requestConfig: AxiosRequestConfig) => {
-  const accessToken = Storage.getItem("ACCESS_TOKEN");
+  const accessToken = Storage.getItem("identify");
   if (requestConfig.headers) {
-    (requestConfig.headers as any).Token = accessToken;
+    (requestConfig.headers as any)["USER-IDENTIFY"] = accessToken;
   }
 
   const urlParams = requestConfig.url?.split("/:") || [];

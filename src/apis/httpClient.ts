@@ -67,7 +67,7 @@ export class HttpClient {
   }
 
   static removeAccessToken() {
-    Storage.setItem("ACCESS_TOKEN", "");
+    Storage.setItem("identify", "");
   }
 
   private static setCommonInterceptors(instance: AxiosInstance) {
