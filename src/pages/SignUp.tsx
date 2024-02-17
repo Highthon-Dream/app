@@ -5,22 +5,7 @@
  * 버킷리스트 게시글 조회 페이지 (벨로그 참고)
  */
 
-import { useEffect, useState } from "react";
-import httpClient from "../apis/httpClient";
-
 export default function SignUp() {
-  const [id, setId] = useState<string>("");
-
-  useEffect(() => {
-    // httpClient.bucketList.get().then((r) => {
-    //     console.log(r);
-    //   });
-  }, [id]);
-
-  const handleSignUp = () => {
-    console.log(id);
-  };
-
   return (
     <div className="px-12 py-32 flex flex-col gap-16">
       <div>
@@ -34,19 +19,16 @@ export default function SignUp() {
           <input
             className="border border-primary w-96 px-3 py-1.5 rounded-md"
             type="text"
-            onChange={(e) => setId(e.target.value)}
             placeholder="이름을 입력해주세요."
           />
           <input
             className="border border-primary w-96 px-3 py-1.5 rounded-md"
             type="text"
-            onChange={(e) => setId(e.target.value)}
             placeholder="이메일을 입력해주세요."
           />
           <input
             className="border border-primary w-96 px-3 py-1.5 rounded-md"
             type="text"
-            onChange={(e) => setId(e.target.value)}
             placeholder="아이디를 입력해주세요."
           />
           <input
@@ -61,10 +43,7 @@ export default function SignUp() {
           />
         </div>
         <div className="flex justify-center">
-          <button
-            className="bg-primary text-white w-96 px-3 py-1.5 rounded-md"
-            onClick={handleSignUp}
-          >
+          <button className="bg-primary text-white w-96 px-3 py-1.5 rounded-md">
             회원가입
           </button>
         </div>
