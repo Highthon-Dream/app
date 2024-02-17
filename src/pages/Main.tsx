@@ -29,13 +29,12 @@ export default function Main() {
         Object.values(r.data).map((a: any) => ({ ...a, imgUrl: "" }))
       );
     });
-  }, []);
-
-  useEffect(() => {
     axios
-      .post("http://192.168.10.142/recommendation/user", {
-        user_id: 1,
-        using: "question",
+      .post("http://192.168.10.142/recommendation/bucketlist", {
+        goal: '',
+        num_items: 5,
+        search: false,
+        streaming: false,
       })
       .then((r) => {
         setRecommentList(r.data);
@@ -59,7 +58,7 @@ export default function Main() {
             ))}
           </div>
         </div>
-        <div className="sticky top-[175px] right-16 overflow-scroll">
+        <div className="sticky top-[175px] right-16">
           <h2 className="font-lotteria text-primary text-[24px] mb-4">
             추천 유저
           </h2>
