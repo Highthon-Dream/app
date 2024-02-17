@@ -1,10 +1,11 @@
-import { AxiosResponse } from "axios";
+import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import httpClient from "../apis/httpClient";
 import BucketComponent from "../components/BucketComponent";
 import Leftbar from "../components/Leftbar";
 import QuestionComponent from "../components/QuestionComponent";
 import { useNavigate } from "react-router-dom";
+import { createNoSubstitutionTemplateLiteral } from "typescript";
 
 export interface ListTypes {
   content: string;
@@ -21,6 +22,7 @@ export interface ListTypes {
 
 export default function Main() {
   const [bucketList, setBucketList] = useState<ListTypes[]>([]);
+  const [recommentList, setRecommentList] = useState<ListTypes[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,10 +33,22 @@ export default function Main() {
     });
   }, []);
 
+  useEffect(() => {
+    axios
+      .post("http://192.168.10.142/recommendation/user", {
+        user_id: 0,
+        using: "question",
+      })
+      .then((r) => {
+        setRecommentList(r.data);
+        console.log(r.data);
+      });
+  }, []);
+
   return (
     <div className="flex items-start">
       <Leftbar />
-      <div className="flex items-start gap-x-[60px] pl-[60px] pt-[80px]">
+      <div className="flex justify-between gap-x-[60px] pl-[60px] pt-[80px] w-full">
         <div className="flex flex-col items-start gap-y-[20px]">
           <h2 className="font-lotteria text-primary text-[24px]">목표</h2>
           <div className="flex flex-col items-center gap-y-[70px] overflow-y-auto">
@@ -44,6 +58,37 @@ export default function Main() {
                 key={bucket.id}
                 onClick={() => navigate(`/bucket/${bucket.id.toString()}`)}
               />
+            ))}
+          </div>
+        </div>
+        <div>
+          <h2 className="font-lotteria text-primary text-[24px]">추천 유저</h2>
+          <div className="flex flex-col items-center gap-y-[32px] overflow-y-auto">
+            {recommentList.map((bucket, idx) => (
+              <div className="w-[400px] px-7 py-5">
+                <div className="flex gap-6 items-center">
+                  <div className="w-14 h-14 bg-black rounded-full" />
+                  <div className="font-lotteria text-primary text-[20px] w-60">
+                    {idx === 0 && "“오늘은 내가 성장하기에 가장 좋은 날이다.”"}
+                    {idx === 1 && "오늘도 즐거운 하루"}
+                    {idx === 2 && "안녕하세용~~"}
+                    {idx === 3 && "테스트1"}
+                    {idx === 4 && "테스트3333"}
+                  </div>
+                </div>
+                <div className="mt-2">
+                  <div className="pl-2 text-2xl">{(bucket as any).name}</div>
+                  <div>
+                    <img
+                      width={150}
+                      height={50}
+                      className="mt-5"
+                      src="https://velog.velcdn.com/images/j1min/post/376ccd76-e569-4e00-b5d3-0b13be0bb5ff/image.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
