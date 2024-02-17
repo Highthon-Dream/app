@@ -14,7 +14,9 @@ export default function BucketListDetailView() {
     <div className="pt-8 px-12">
       <div>
         <h1 className="text-primary text-3xl font-bold">{detailInfo?.title}</h1>
-        <span>{new Date(detailInfo?.createdAt).toDateString()}</span>
+        {detailInfo?.createdAt && (
+          <span>{new Date(detailInfo?.createdAt).toDateString()}</span>
+        )}
       </div>
       <hr className="border border-primary mt-6" />
       <p
