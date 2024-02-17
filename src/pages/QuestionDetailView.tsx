@@ -45,7 +45,7 @@ export default function QuestionDetailView() {
             httpClient.questionList
               .postIdAnswer(id, { content: info })
               .then((r) => {
-                console.log(r.data);
+                window.location.reload()
               });
           }}
         >

@@ -34,9 +34,9 @@ export default function Main() {
   return (
     <div className="flex items-start">
       <Leftbar />
-      <div className="flex items-start gap-x-[60px] pl-[60px] pt-[80px]">
+      <div className="flex items-start gap-x-[60px] pl-[50px] pt-[40px]">
         <div className="flex flex-col items-start gap-y-[20px]">
-          <h2 className="font-lotteria text-primary text-[24px]">목표</h2>
+          <h2 className="font-lotteria text-primary text-[24px]">버킷리스트</h2>
           <div className="flex flex-col items-center gap-y-[70px] overflow-y-auto">
             {bucketList.map((bucket) => (
               <BucketComponent

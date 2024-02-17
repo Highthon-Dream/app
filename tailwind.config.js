@@ -9,9 +9,6 @@ module.exports = {
       fontFamily: {
         lotteria: "LOTTERIACHAB",
       },
-      backgroundImage: {
-        "back-pattern": "url('./assets/background.png')",
-      },
     },
   },
   plugins: [],

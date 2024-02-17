@@ -4,11 +4,11 @@ import SmallBucketIcon from "../assets/SmallBucketIcon";
 import { ListTypes } from "../pages/Main";
 import { changedDate } from "../util/chnagedDate";
 
-interface UserComponentProps {
+interface QuestionComponentProps {
   question: ListTypes;
 }
 
-const UserComponent = ({ question }: UserComponentProps) => {
+const QuestionComponent = ({ question }: QuestionComponentProps) => {
   return (
     <>
       {question === undefined ? null : (
@@ -45,4 +45,4 @@ const UserComponent = ({ question }: UserComponentProps) => {
   );
 };
 
-export default UserComponent;
+export default QuestionComponent;

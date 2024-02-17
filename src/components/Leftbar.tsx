@@ -1,12 +1,11 @@
-import React from "react";
-import HomeIcon from "../assets/HomeIcon";
 import { useLocation, useNavigate } from "react-router-dom";
-import BuketIcon from "../assets/BuketIcon";
+import HomeIcon from "../assets/HomeIcon";
 import ProfileOIcon from "../assets/ProfileIcon";
+import QuestionIcon from "../assets/QuestionIcon";
 
 const headerObj = [
   { name: "홈", icon: <HomeIcon />, link: "/" },
-  { name: "버킷리스트", icon: <BuketIcon />, link: "/question" },
+  { name: "질문", icon: <QuestionIcon />, link: "/question" },
   { name: "프로필", icon: <ProfileOIcon />, link: "/profile" },
 ];
 
