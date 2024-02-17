@@ -36,7 +36,7 @@ export default function Main() {
   useEffect(() => {
     axios
       .post("http://192.168.10.142/recommendation/user", {
-        user_id: 0,
+        user_id: 1,
         using: "question",
       })
       .then((r) => {
