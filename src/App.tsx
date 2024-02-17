@@ -1,10 +1,9 @@
+import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
-import Leftbar from "./components/Leftbar";
 import Buket from "./pages/Buket";
-import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 import Main from "./pages/Main";
-import { Route, Routes } from "react-router-dom";
+import Profile from "./pages/Profile";
 import SignUp from "./pages/SignUp";
 
 const App = () => {
