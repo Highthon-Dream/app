@@ -7,6 +7,7 @@ import Profile from "./pages/Profile";
 import SignUp from "./pages/SignUp";
 import ToastEditor from "./pages/BucketListWrite";
 import TodoWrite from "./pages/TodoWrite";
+import Detail from "./pages/Detail";
 
 const App = () => {
   return (
@@ -14,7 +15,8 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/buket" element={<Buket />} />
+        <Route path="/bucket" element={<Buket />} />
+        <Route path="/bucket/:id" element={<Detail />} />
         <Route path="/write" element={<ToastEditor />} />
         <Route path="/bucket/write" element={<TodoWrite />} />
         <Route path="/profile" element={<Profile />} />
