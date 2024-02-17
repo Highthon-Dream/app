@@ -6,7 +6,6 @@
  */
 
 import { useEffect, useState } from "react";
-import httpClient from "../apis/httpClient";
 
 export default function SignUp() {
   const [id, setId] = useState<string>("");

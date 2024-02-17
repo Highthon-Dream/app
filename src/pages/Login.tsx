@@ -16,8 +16,27 @@ export default function Login() {
     // });
   }, [id]);
 
+  function checkId(id: string): boolean {
+    const idList: string[] = [
+      "weego-1",
+      "weego-2",
+      "weego-3",
+      "weego-4",
+      "weego-5",
+    ];
+    if (idList.includes(id)) {
+      return true;
+    }
+    return false;
+  }
+
   const handleLogin = () => {
-    console.log(id);
+    if (checkId(id)) {
+      alert("로그인 완료~!");
+      return;
+    }
+    alert("아이디나 비밀번호를 확인해주세요.");
+    return;
   };
 
   return (
