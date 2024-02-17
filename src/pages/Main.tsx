@@ -1,3 +1,4 @@
+import { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import httpClient from "../apis/httpClient";
 import BucketComponent from "../components/BucketComponent";
@@ -20,12 +21,12 @@ export interface ListTypes {
 export default function Main() {
   const [bucketList, setBucketList] = useState<ListTypes[]>([]);
   const [questionList, setQuestionList] = useState<ListTypes[]>([]);
+
   useEffect(() => {
-    httpClient.bucketList.get().then((r) => {
-      setBucketList(r.data);
-    });
-    httpClient.questionList.get().then((r) => {
-      setQuestionList(r.data);
+    httpClient.bucketList.get().then((r: AxiosResponse) => {
+      setBucketList(
+        Object.values(r.data).map((a: any) => ({ ...a, imgUrl: "" }))
+      );
     });
   }, []);
 
@@ -33,15 +34,15 @@ export default function Main() {
     <div className="flex items-start">
       <Leftbar />
       <div className="flex items-start gap-x-[60px] pl-[60px] pt-[80px]">
-        <div className="flex flex-col items-center gap-y-[70px] overflow-y-auto">
-          {Object.values(bucketList).map((bucket) => (
-            <BucketComponent bucket={bucket} key={bucket.id} />
-          ))}
-        </div>
-        <div className="flex flex-col items-center gap-y-[30px] sticky top-40">
-          {Object.values(questionList).map((question) => (
-            <QuestionComponent question={question} key={question.id} />
-          ))}
+        <div className="flex flex-col items-start gap-y-[20px]">
+          <h2 className="font-lotteria text-primary text-[24px]">
+            목표
+          </h2>
+          <div className="flex flex-col items-center gap-y-[70px] overflow-y-auto">
+            {bucketList.map((bucket) => (
+              <BucketComponent bucket={bucket} key={bucket.id} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
