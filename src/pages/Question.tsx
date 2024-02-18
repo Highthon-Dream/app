@@ -21,7 +21,6 @@ const Question = () => {
       })
       .then((r) => {
         setRecommentList(r.data);
-        console.log(r.data);
       });
   }, []);
 
@@ -52,7 +51,7 @@ const Question = () => {
             {recommentList.map((bucket, idx) => (
               <div
                 className="w-[400px] px-7 py-5 border-2 border-primary rounded-[48px]"
-                onClick={() => navigate(`/profile/${bucket.id}`)}
+                onClick={() => navigate(`/chat/${bucket.id}`)}
               >
                 <div className="flex gap-6 items-center">
                   <div className="w-14 h-14 bg-black rounded-full" />
