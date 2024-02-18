@@ -18,7 +18,6 @@ const Profile = () => {
   const [myQuestionList, setMyQuestionList] = useState<
     { id: number; title: string; content: string }[]
   >([]);
-  const [profileInfo, setProfileInfo] = useState({});
   const [isAdd, setIsAdd] = useState(false);
   const [addTitle, setAddTitle] = useState("");
   const [addContent, setAddContent] = useState("");
@@ -87,19 +86,19 @@ const Profile = () => {
           <div className="flex flex-col items-center float-left ml-4 gap-y-[20px]">
             <div className="flex flex-col items-start gap-y-[10px]">
               <span>이름</span>
-              <div className="w-[274px] h-[31px] bg-[#E7EFFF]">beomjin</div>
+              <div className="w-[274px] h-[31px] bg-[#E7EFFF] pl-3 flex items-center">beomjin</div>
             </div>
             <div className="flex flex-col items-start gap-y-[10px]">
               <span>ID</span>
-              <div className="w-[274px] h-[31px] bg-[#E7EFFF]">beomjin05</div>
+              <div className="w-[274px] h-[31px] bg-[#E7EFFF] pl-3 flex items-center">beomjin05</div>
             </div>
             <div className="flex flex-col items-start gap-y-[10px]">
               <span>비밀번호</span>
-              <div className="w-[274px] h-[31px] bg-[#E7EFFF]">dkssud78@</div>
+              <div className="w-[274px] h-[31px] bg-[#E7EFFF] pl-3 flex items-center">dkssud78@</div>
             </div>
             <div className="flex flex-col items-start gap-y-[10px]">
               <span>이메일</span>
-              <div className="w-[274px] h-[31px] bg-[#E7EFFF]">abcd@gmail.com</div>
+              <div className="w-[274px] h-[31px] bg-[#E7EFFF] pl-3 flex items-center">abcd@gmail.com</div>
             </div>
           </div>
         </div>
