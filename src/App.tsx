@@ -19,17 +19,15 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/chat/1" element={<Chat />} />
+        <Route path="/chat/:id" element={<Chat />} />
         <Route path="/bucket" element={<Buket />} />
         <Route path="/question" element={<Question />} />
-        <Route path="/question/write" element={<></>} />
         <Route path="/question/:id" element={<QuestionDetailView />} />
         <Route path="/bucket/write/:id" element={<Detail />} />
         <Route path="/bucket/:id" element={<BucketListDetailView />} />
         <Route path="/write" element={<ToastEditor />} />
         <Route path="/bucket/write" element={<TodoWrite />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/profile/:id" element={<Profile />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
